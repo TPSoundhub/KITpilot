@@ -17,8 +17,3 @@ Sound_to_play = pygame.mixer.Sound("hej-1sek.wav")
 Sound_to_play.play()
 
 time.sleep(10)  #Vent laenge nok til at lyd er afspillet ifm cmd line
-
-
-                
-            
-         

@@ -23,6 +23,3 @@ Sound_to_play.play()
 time.sleep(20)  #Vent lidt inden det slutter af aht cmd linie afvikling
 
 pygame.quit()   # For at rydde op i lyd buffre etc.
-                
-            
-         

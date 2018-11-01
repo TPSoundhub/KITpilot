@@ -19,7 +19,7 @@ while(True):
     elif(GPIO.input(18)==1):
          print("Rød knap er lukket")
     else:
-        print("begge er åbne")
+        print("Alle 3 er åbne")
     time.sleep(0.5)
 
 # Kode bliver ved til afbrydes med ctrl-c. Ikke paen kode!!!

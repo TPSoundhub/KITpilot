@@ -26,9 +26,10 @@ while(True):
     # her kan man lave kode hvor hoveddoeren ikke hele tiden checkes.
     # Man kan lave noget andet - naar der kommer nogen ringer de paa doeren (callback)
     # men for sammenligningens skyld lader vi her bare koden staa og skrive at der ikke er nogen
+    # men kan frigive CPU i hele 5 sekunder uden at vi taber knap tryk
     
     print("alle 3 er ikke aktiveret")
-    time.sleep(5)
+    time.sleep(10)
 
 # Kode bliver ved til afbrydes med ctrl-c. Ikke paen kode!!!
 # Efterlader GPIO pindene i udefineret tilstand!!
