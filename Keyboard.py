@@ -2,7 +2,7 @@ import pygame
 import time
 # sys med for at kunne stoppe via X i GUI vinduet
 # IKKE noedvendig ifm headless (incl. fra boot via rc.local)!!
-# Danske tegn vil forvirre python fra cmd line :-)
+# Danske tegn forvirrer python fra cmd line :-)
 import sys
 
 pygame.mixer.init()
@@ -15,9 +15,9 @@ music_volume=0.1
 pygame.mixer.music.set_volume(music_volume)
 
 sound_vol = 1.0
-Sound1_to_play = pygame.mixer.Sound("Lyd1.wav")
+Sound1_to_play = pygame.mixer.Sound("/home/pi/Python_test/Lyd1.wav")
 Sound1_to_play.set_volume(sound_vol)
-Sound2_to_play = pygame.mixer.Sound("Lyd2.wav")
+Sound2_to_play = pygame.mixer.Sound("/home/pi/Python_test/Lyd2.wav")
 Sound2_to_play.set_volume(sound_vol)
 
 pygame.display.init()

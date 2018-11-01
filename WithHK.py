@@ -1,5 +1,6 @@
-# Danske tegn vil forvirre python fra cmd line :-)
-# Kombo af key event og keyboard
+#
+# Danske tegn forvirrer python fra cmd line i dette esetup saa derfor er de vaek :-)
+# Kombo af key_event og HelloW2 til at lave kombinationn af lyd mix og knap aktivering
 #
 import pygame
 import time
@@ -23,13 +24,15 @@ Sound2_to_play.set_volume(sound_vol)
 
 def button_callback(channel):
     if channel == 29:
-        Sound1_to_play.play()  # Sound 1 paa Gul Skal have check paa kanaler ved gentryk
+        Sound1_to_play.play()       # Sound 1 paa Gul Skal evt have check paa kanaler ved gentryk
     elif channel == 31:
-        Sound2_to_play.play()  # Sound 2 paa Hvid
+        Sound2_to_play.play()       # Sound 2 paa Hvid
     elif channel == 18:
-        pygame.mixer.music.play(0)  # Genstart baggrund på roed
-        # Bør nok istedet lave en paen exit på program
-        run = False # Stop program på roed
+        pygame.mixer.music.play(0)  # Genstart baggrund paa roed
+
+        # Kunne istedet bruge det til at lave en paen exit paa program
+        # Stop program paa roed med run lig false gaar ikke
+        # Global variabel ikke tilgaengelig i callback
 
 GPIO.setmode(GPIO.BOARD) # Board attribute means reference by PIN number
 GPIO.setup(29,GPIO.IN)   # PIN 29 on RPi from PIN 29 on Beocreate = Gul knap
@@ -40,13 +43,14 @@ GPIO.add_event_detect(29,GPIO.RISING,callback=button_callback) # setup event on 
 GPIO.add_event_detect(31,GPIO.RISING,callback=button_callback) # setup event on pin 31 from low to high
 GPIO.add_event_detect(18,GPIO.RISING,callback=button_callback) # setup event on pin 18 from low to high
 
-
-
 while run:
     time.sleep(5)
                 
-# Skal have lavet paen exit her - noget med exception og finally .....              
-# Paen oprydning - Hvis ikke import sys i starten saa fjern sidste
+# Boer have en paen exit her - noget med exception og finally .....              
+# Paen oprydning - Kommer vi aldrig til paa denne maade med koden ovenfor!!
+# Kan kun stoppe program med ctrl-c eller fjerne det fra Boot seq. eller stoppe IDLE shell
+# At der ikke ryddes op kan betyde at kanaler er blokeret og lyd ikke spilles naeste gang!!
+# eller at tilstand paa PINs er udefineret..
 pygame.quit()
 GPIO.cleanup()
 
