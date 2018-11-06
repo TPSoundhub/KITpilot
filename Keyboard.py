@@ -5,19 +5,28 @@ import time
 # Danske tegn forvirrer python fra cmd line :-)
 import sys
 
+# sti til lyde paa PI
+# baggrundslyd = "/home/pi/Python_test/Baggrund.wav"
+# lyd1 = "/home/pi/Python_test/Lyd1.wav"
+# lyd2 = "/home/pi/Python_test/Lyd2.wav"
+
+#Sti til lyde paa PC/MAC udelades - afvikler kun program lokalt
+baggrundslyd = "Baggrund.wav"
+lyd1 = "lyd1.wav"
+lyd2 = "lyd2.wav"
+
 pygame.mixer.init()
 
-pygame.mixer.music.load("/home/pi/Python_test/Baggrund.wav")
-
-pygame.mixer.music.play(0)
-music_playing = True
+pygame.mixer.music.load(baggrundslyd)
 music_volume=0.1
 pygame.mixer.music.set_volume(music_volume)
+pygame.mixer.music.play(0)
+music_playing = True
 
-sound_vol = 1.0
-Sound1_to_play = pygame.mixer.Sound("/home/pi/Python_test/Lyd1.wav")
+sound_vol = 0.5
+Sound1_to_play = pygame.mixer.Sound(lyd1)
 Sound1_to_play.set_volume(sound_vol)
-Sound2_to_play = pygame.mixer.Sound("/home/pi/Python_test/Lyd2.wav")
+Sound2_to_play = pygame.mixer.Sound(lyd2)
 Sound2_to_play.set_volume(sound_vol)
 
 pygame.display.init()
