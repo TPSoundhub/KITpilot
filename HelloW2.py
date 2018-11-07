@@ -9,10 +9,19 @@
 import pygame
 import time
 
+# sti til lyde paa PI
+baggrundslyd = "/home/pi/KITpilot-master/Baggrund.wav"
+hejlyd = "/home/pi/KITpilot-master/hej-1sek.wav"
+
+#Sti til lyde paa PC/MAC udelades - afvikler kun program lokalt
+#baggrundslyd = "Baggrund.wav"
+#lyd1 = "hej-1sek.wav"
+
+
 #Play sound file som baggrunds lyd
 pygame.mixer.init()
 music_volume = 0.1
-pygame.mixer.music.load("/home/pi/Python_test/Baggrund.wav")
+pygame.mixer.music.load(baggrundslyd)
 pygame.mixer.music.set_volume(music_volume)
 pygame.mixer.music.play(0)
 
@@ -24,7 +33,7 @@ time.sleep(5) # vent 5 sek og lyt til baggrunds lyd
 # og bruger mixer.Sound som kan koere oveni (samtidigt med) mixer.music
 
 sound_vol = 1.0
-Sound_to_play = pygame.mixer.Sound("/home/pi/Python_test/hej-1sek.wav")
+Sound_to_play = pygame.mixer.Sound(hejlyd)
 Sound_to_play.set_volume(sound_vol)
 Sound_to_play.play()
 
