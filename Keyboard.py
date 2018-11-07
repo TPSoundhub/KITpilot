@@ -6,14 +6,14 @@ import time
 import sys
 
 # sti til lyde paa PI
-# baggrundslyd = "/home/pi/Python_test/Baggrund.wav"
-# lyd1 = "/home/pi/Python_test/Lyd1.wav"
-# lyd2 = "/home/pi/Python_test/Lyd2.wav"
+baggrundslyd = "/home/pi/KITpilot-master/Baggrund.wav"
+lyd1 = "/home/pi/KITpilot-master/Lyd1.wav"
+lyd2 = "/home/pi/KITpilot-master/Lyd2.wav"
 
 #Sti til lyde paa PC/MAC udelades - afvikler kun program lokalt
-baggrundslyd = "Baggrund.wav"
-lyd1 = "lyd1.wav"
-lyd2 = "lyd2.wav"
+#baggrundslyd = "Baggrund.wav"
+#lyd1 = "lyd1.wav"
+#lyd2 = "lyd2.wav"
 
 pygame.mixer.init()
 
