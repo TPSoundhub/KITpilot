@@ -1,42 +1,45 @@
-#
-# HelloW2.py med 2 samtidige lyde
-# Viser at der er parallelitet i afvikling mht lyd
-# Selvom program er en strenget.
-# Forskel i afvikling fra shell i IDLE miljoet og fra kommando linie
-# - Skal have fuld sti til lyd filer for at koere fra kommando linie.
-# - Lyd afvikling stopper naar program stopper fra kommandolinie. Derfor sleep!
+# HelloW2.py - 2. Program
+# - Importerng af biblioteker med ekstra funktioner
+# - Afspilning af 2 lyde samtidigt med hver deres volumen niveau
 
 import pygame
-import time
+import time  
 
-# sti til lyde paa PI
-baggrundslyd = "/home/pi/KITpilot-master/Baggrund.wav"
-hejlyd = "/home/pi/KITpilot-master/hej-1sek.wav"
+l1 = "hej-1sek.wav"
+l2 = "Baggrund.wav"
+#
+# sti til lyde paa PI - fuld sti til start fra boot
+#
+# l2 = "/home/pi/KITpilot-master/Baggrund.wav"
+# l1 = "/home/pi/KITpilot-master/hej-1sek.wav"
 
-#Sti til lyde paa PC/MAC udelades - afvikler kun program lokalt
-#baggrundslyd = "Baggrund.wav"
-#lyd1 = "hej-1sek.wav"
-
-
-#Play sound file som baggrunds lyd
+# initialisering af mixer
 pygame.mixer.init()
-music_volume = 0.1
-pygame.mixer.music.load(baggrundslyd)
-pygame.mixer.music.set_volume(music_volume)
+
+pygame.mixer.music.set_volume(0.1)
+pygame.mixer.music.load(l2)
 pygame.mixer.music.play(0)
+#
+# Kan lave det samme med mindre tekst ved at skrive:
+#
+# Bagg=pygame.mixer.music
+# Bagg.set_volume(0.1)
+# Bagg.load(l2)
+# Bagg.play(0)
 
+time.sleep(5) # vent 5 sek og lyt til baggrunds lyd inden hej lyd
 
-time.sleep(5) # vent 5 sek og lyt til baggrunds lyd
+pygame.mixer.Sound(l1).set_volume(1.0)
+pygame.mixer.Sound(l1).play()
+#
+# Kan lave det samme med mindre tekst ved at skrive:
+#
+# Lyd1=pygame.mixer.Sound(l1)
+# Lyd1.set_volume(1.0)
+# Lyd1.play(0)
 
-# Spiller hej med jer lyd ovenpaa baggrund - samtidigt
-# benytter en streng til at korte kommando ned
-# og bruger mixer.Sound som kan koere oveni (samtidigt med) mixer.music
+#time.sleep(20)  # Hvis der ryddes op med quit kommer sidte lyd ikke ud.
 
-sound_vol = 1.0
-Sound_to_play = pygame.mixer.Sound(hejlyd)
-Sound_to_play.set_volume(sound_vol)
-Sound_to_play.play()
+#For at rydde op i mixer
+#pygame.quit()   
 
-time.sleep(20)  # Vent lidt inden det slutter af aht cmd linie afvikling
-
-pygame.quit()   # For at rydde op i lyd buffre etc.

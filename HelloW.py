@@ -1,33 +1,29 @@
-import pygame
-import time
+# HelloW.py - 1. Program
+# - Indbygget funktion - print
+# - Hjemmelavet funktion og betingelse
 
 print ("hej med jer")
 
 
-#demo af funktion - kan bruges til at vise debug
+def pn(t):
+    print("Hej med dig: ")
+    print(t)
+    print("Godt at se dig")
+          
 
-def fib(n):
-    a,b = 0,1
-    while a<n:
-        print(a, end=' ')
-        a,b = b,a+b
-    print()
+def lms(n):
+    if n<10:
+        print("tal under 10")
+    elif n == 10:
+        print("tal er 10")
+    else:
+        print("tal over 10")
+    
 
+pn("Jens")
+pn("Lotte")
 
-fib(1000)   
+lms(5)
+lms(24)
+lms(10)
 
-
-# sti til lyde paa PI
-hejlyd = "/home/pi/KITpilot-master/hej-1sek.wav"
-
-#Sti til lyde paa PC/MAC udelades - afvikler kun program lokalt
-#hejlyd = "hej-1sek.wav"
-
-# Spil lydfil hej med jer som alternativ til at skrive det
-pygame.mixer.init()
-pygame.mixer.music.load(hejlyd)
-music_volume = 1.0
-pygame.mixer.music.set_volume(music_volume)
-pygame.mixer.music.play(0)
-
-time.sleep(2) # Vent 2 sek saa lyd er afspillet - aht afvikling fra cmd linie
